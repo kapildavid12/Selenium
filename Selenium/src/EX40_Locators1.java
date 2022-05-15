@@ -11,11 +11,15 @@ public class EX40_Locators1 {
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\kpilv\\Documents\\Z.Selenium\\chromedriver_win32\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		
-		driver.get("https://rahulshettyacademy.com/locatorspractice/");
+		
+		
 		String s = "Rahul";
+		String passwordd = getPassword(driver); // we are calling the method (static method, so no object creation) and then save it as string
+		
+		driver.get("https://rahulshettyacademy.com/locatorspractice/");
 		driver.findElement(By.xpath("//input[@id=\"inputUsername\"]")).sendKeys(s); 
-		driver.findElement(By.xpath("//input[@name=\"inputPassword\"]")).sendKeys("rahulshettyacademy");
-		driver.findElement(By.xpath("//input[@value=\"agreeTerms\"]")).click();
+		driver.findElement(By.xpath("//input[@name=\"inputPassword\"]")).sendKeys(passwordd);
+		driver.findElement(By.xpath("//label[@for=\"chkboxTwo\"]")).click();
 		driver.findElement(By.xpath("//button[@class=\"submit signInBtn\"]")).click();
 		
 		Thread.sleep(2000); // page is on changing state, give this sleep in-order the page to get stable.
@@ -37,8 +41,27 @@ public class EX40_Locators1 {
 		
 		driver.close();
 		
+	}
+	
+	//Creating a method in-order to get the password dynamically and pass it
+	
+	public static String getPassword(WebDriver driver) throws InterruptedException // paramater as driver since this method don't have knowledge about that
+	{
+		driver.get("https://rahulshettyacademy.com/locatorspractice/");
+		driver.findElement(By.linkText("Forgot your password?")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//button[text()='Reset Login']")).click();
+		String a = driver.findElement(By.className("infoMsg")).getText();
+		String[] arr = a.split("'"); //split the string using ' and it will store as array
+		//arr[0] -> Please use temporary password
+		//arr[1] -> rahulshettyacademy' to Login. // arr[1] is where our password exists.
 		
-
+		String[] arr1 = arr[1].split("'"); //split the string using ' and it will store as array
+		//arr1[0]-> rahulshettyacademy
+		String password = arr1[0];
+		
+		return password; // We are returning so above method will get it.
+		
 	}
 
 }
