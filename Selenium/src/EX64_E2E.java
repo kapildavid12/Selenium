@@ -1,5 +1,6 @@
 import java.time.Duration;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -44,7 +45,7 @@ public class EX64_E2E {
 		}
 		
 		driver.findElement(By.id("divpaxinfo")).click();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 		for(int i=1;i<5;i++)
 		{
 			driver.findElement(By.id("hrefIncAdt")).click(); //selected 5 adults

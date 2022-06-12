@@ -1,4 +1,5 @@
 import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -13,7 +14,7 @@ public class EX32_Locators {
 		WebDriver driver = new ChromeDriver();
 		
 		//If we don't give wait mechanism then Selenium will not wait till error message to appear & it will throw error
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5)); //implicit wait mechanism 
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS); //implicit wait mechanism 
 		
 		driver.get("https://rahulshettyacademy.com/locatorspractice/");
 		driver.findElement(By.id("inputUsername")).sendKeys("Rahul"); // id locator

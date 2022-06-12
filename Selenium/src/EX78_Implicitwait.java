@@ -1,6 +1,7 @@
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -15,7 +16,7 @@ public class EX78_Implicitwait {
 		String[] a = {"Cucumber", "Brocolli", "Beetroot", "Beans"};
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\kpilv\\Documents\\Z.Selenium\\chromedriver_win32\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));  //Implicit Wait is declared globally
+		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);;  //Implicit Wait is declared globally
 		
 		driver.get("https://rahulshettyacademy.com/seleniumPractise/#/");
 		driver.manage().window().maximize();

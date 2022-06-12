@@ -18,7 +18,7 @@ public class EX79_Explicitwait {
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\kpilv\\Documents\\Z.Selenium\\chromedriver_win32\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		//driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));  
-		WebDriverWait w = new WebDriverWait(driver, Duration.ofSeconds(5)); // Explicit wait
+		WebDriverWait w = new WebDriverWait(driver, 5); // Explicit wait
 		
 		driver.get("https://rahulshettyacademy.com/seleniumPractise/#/");
 		driver.manage().window().maximize();

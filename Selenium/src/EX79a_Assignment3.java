@@ -25,7 +25,7 @@ public class EX79a_Assignment3 {
 	
 	public static void products(WebDriver driver)
 	{
-		WebDriverWait w = new WebDriverWait(driver, Duration.ofSeconds(5));
+		WebDriverWait w = new WebDriverWait(driver, 5);
 		
 		driver.findElement(By.id("username")).sendKeys("rahulshettyacademy");
 		driver.findElement(By.id("password")).sendKeys("learning");
@@ -43,7 +43,7 @@ public class EX79a_Assignment3 {
 		driver.findElement(By.id("terms")).click();
 		driver.findElement(By.id("signInBtn")).click();
 		
-		WebDriverWait w1 = new WebDriverWait(driver, Duration.ofSeconds(20));
+		WebDriverWait w1 = new WebDriverWait(driver, 5);
 		w1.until(ExpectedConditions.titleContains("ProtoCommerce"));
 		
 		List<WebElement> items = driver.findElements(By.xpath("//div[@class='card h-100']"));
